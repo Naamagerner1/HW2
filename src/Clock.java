@@ -3,16 +3,22 @@ public class Clock {
     protected int minutes;
 
     public Clock(int hours, int minutes){
+        if (hours > 24 || hours < 0)
+            hours=0;
+
+        if (minutes>60 || minutes<0)
+            minutes=0;
+
         this.hours=hours;
         this.minutes=minutes;
     }
 
     @Override
     public boolean equals(Object other) {
-        Clock otherClock = (Clock) other;
-        if (other instanceof AccurateClock){ //////////////
+        if (other instanceof AccurateClock || other == null){ //////////////
             return false;
         }
+        Clock otherClock = (Clock) other;
         return (this.hours == otherClock.hours && this.minutes== otherClock.minutes);
     }
 

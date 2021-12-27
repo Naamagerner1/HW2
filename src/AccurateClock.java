@@ -4,14 +4,17 @@ public class AccurateClock extends Clock{
 
     public AccurateClock(int hours, int minutes, int seconds){
         super(hours,minutes);
+        if (seconds>60 || seconds<0)
+            seconds=0;
+
         this.seconds=seconds;
     }
 
     @Override
     public boolean equals(Object other) {
-        AccurateClock otherClock = (AccurateClock) other;
-        if (other instanceof Clock)
+        if ((other instanceof Clock && !(other instanceof AccurateClock)) || other == null)    //////
             return false;
+        AccurateClock otherClock = (AccurateClock) other;
         return (this.hours == otherClock.hours && this.minutes== otherClock.minutes
                 && this.seconds== otherClock.seconds);
     }

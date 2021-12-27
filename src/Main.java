@@ -4,7 +4,7 @@ public class Main {
     public static Random rnd;
 
     public static void main(String[] args) {
-        testPartA();
+        //testPartA();
         System.out.println();
         //testPartB();
     }
@@ -70,7 +70,7 @@ public class Main {
         System.out.println("o4 with ac3: " + o4.equals(ac3));
 
     }
-/*
+
     private static void testPartB() {
         System.out.println("---------- Tests for part B ----------");
         rnd = new Random(42);
@@ -150,6 +150,6 @@ public class Main {
         System.out.println();
 
         f.printTree(SortingField.NAME);
-    } */
+    }
 }
 
