@@ -10,7 +10,7 @@ public class File extends StorageItem {
     public File (String name, String ext){
         super(name);
         this.ext = ext;
-        content = null;
+        content = new String();
     }
     public String getExt(){
         return ext;

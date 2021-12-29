@@ -4,11 +4,12 @@ import java.util.Comparator;
 
 public class Folder extends StorageItem {
     private String date;
-    protected ArrayList <StorageItem> listInFolder = new ArrayList<>();
+    protected ArrayList <StorageItem> listInFolder;
 
     public Folder(String name){
         super(name);
-        listInFolder = null;
+        //listInFolder = null;
+        listInFolder = new ArrayList<>();
     }
 
     public int getSize() {
@@ -64,29 +65,20 @@ public class Folder extends StorageItem {
     @Override
     public void printTree(SortingField sortBy){
         if (sortBy == SortingField.NAME){
-                Collections.sort(listInFolder,(Comparator.comparing((StorageItem item) -> item.getName())));
+                Collections.sort(listInFolder,(Comparator.comparing((StorageItem item) -> item.getName(), String.CASE_INSENSITIVE_ORDER)));
                 printAfterSort(sortBy);
-                /*for (int j = 0; j<counter-1; j++){
-                    System.out.print("|    ");
-                }
-                    System.out.println(this.name);
-                for (StorageItem currItem : listInFolder){
-                    if (currItem instanceof Folder) {
-                        counter++;
-                        currItem.printTree(SortingField sortBy);
-                    }
-                    for (int i=0; i<counter ; i++){
-                        System.out.print("|    ");
-                    }
-                    System.out.println(currItem.getName());
-                }*/
             }
         if (sortBy == SortingField.SIZE){
             Collections.sort(listInFolder,(Comparator.comparing((StorageItem item) -> item.getSize())
                     .thenComparing((StorageItem item) -> item.getName())));
             printAfterSort(sortBy);
         }
+        if (sortBy == SortingField.DATE){
+            Collections.sort(listInFolder,(Comparator.comparing((StorageItem item) -> item.getCreationDate())
+                    .thenComparing((StorageItem item) -> item.getName())));
+            printAfterSort(sortBy);
         }
+    }
 
 
 

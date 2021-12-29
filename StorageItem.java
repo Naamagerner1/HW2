@@ -22,6 +22,9 @@ public abstract class StorageItem {
     public String getName(){
         return name;
     }
+    public Date getCreationDate(){
+        return date;
+    }
     public abstract int getSize();
 
     public void printTree(SortingField sortBy){

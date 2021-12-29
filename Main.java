@@ -4,9 +4,9 @@ public class Main {
     public static Random rnd;
 
     public static void main(String[] args) {
-        //testPartA();
+        testPartA();
         System.out.println();
-        //testPartB();
+        testPartB();
     }
 
     private static void testPartA() {
