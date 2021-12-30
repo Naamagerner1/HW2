@@ -5,7 +5,7 @@ public class File extends StorageItem {
     //public String name;
     private String ext;
     private String content;
-    private String date;
+    //private String date;
 
     public File (String name, String ext){
         super(name);
@@ -15,16 +15,18 @@ public class File extends StorageItem {
     public String getExt(){
         return ext;
     }
-    public String getDate(){
-        return date;
-    }
+    /*
+    public String getCreationDate(){
+        return date.toString();
+    }*/
     public String getContent(){
         return content;
     }
 
     @Override
     public String getName(){
-        return this.name+"."+ext;
+        String theName = name + "." + ext;
+        return theName;
     }
     public int getSize(){
         return content.length();
@@ -35,7 +37,7 @@ public class File extends StorageItem {
     }
     void printContent(){
         int size = getSize();
-        System.out.println(this.name+" Size: "+size+"MB Created: "+date);
+        System.out.println(this.getName()+" Size: "+size+"MB Created: "+this.getCreationDate());
         System.out.println(content);
     }
 

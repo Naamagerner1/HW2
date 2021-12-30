@@ -1,5 +1,5 @@
 public class ShortCut extends StorageItem{
-    private String date;
+    //private String date;
     private StorageItem item;
 
     public ShortCut(StorageItem item){
